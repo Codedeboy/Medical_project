@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeathCare+ - Patient Portal</title>
+    <style>
+        /* CSS - Basic Reset */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333; /* Darker text for better readability */
+            background-color: #bbf0e5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #7fd9b4;
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap on small screens */
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 5%;
+        }
+
+        #logo img {
+            width: 90px; /* Smaller logo for mobile */
+            height: auto;
+    
+        }
+
+        #nav_text {
+            color: #fff;
+            font-weight: bolder;
+            font-size: 1.8rem; /* Use rem for scalability */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px; /* Spacing between menu items */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight:bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #012bf9;
+        }
+
+        /* Hero / Home Section */
+        #home {
+            background: linear-gradient(rgba(52, 78, 65, 0.5), rgba(107, 236, 238, 0.5)), 
+                        url('https://images.unsplash.com/photo-1505751172107-16d566373859?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #home h1 {
+            font-size: 3rem; /* Dynamic size */
+            margin-bottom: 10px;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            font-style: italic;
+            max-width: 800px;
+        }
+
+        /* Doctor Slider Section */
+        #contact {
+            background-color: #fff;
+            padding: 60px 10px;
+            text-align: center;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            background: #bafae7;
+            padding: 40px 0;
+            margin-top: 20px;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(280px * 6); /* Adjusted for card size */
+            animation: scroll 20s linear infinite;
+        }
+
+        .doctor-card {
+            width: 260px; /* Fixed width for cards in slider */
+            background: white;
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .doctor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .exp { color: #3498db; font-weight: bold; }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-280px * 3)); }
+        }
+
+        /* About Section */
+        #about {
+            padding: 60px 5%;
+            background-color: #7ff0cf;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: large;
+        }
+
+        #about h2, #about h4, #about h6 {
+            font-size: larger; margin: 20px 0 10px; }
+
+        /* Footer */
+        footer {
+            background: #4eeded;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* --- MOBILE RESPONSIVENESS (Media Query) --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Stack logo, title, and links */
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                padding: 0;
+            }
+
+            #nav_text {
+                font-size: 1.5rem;
+            }
+
+            #home h1 {
+                font-size: 2rem; /* Smaller heading on phone */
+            }
+
+            #home p {
+                font-size: 1rem;
+            }
+
+            #about {
+                font-size: 1rem; /* Readable text for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div id="logo">
+            <!-- Note: Ensure your local image path is correct, or use a placeholder -->
+            <img src="img/pngtree-healthcare-medical-center-diagnostic-centre-hospital-and-treatment-service-logo-design-vector-png-image_9116463-removebg-preview.png" alt="Healthcare+">
+        </div>
+        <div id="nav_text">HealthCare+</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Doctors</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Your Health, Our Priority</h1>
+        <p>"A good physician treats the disease; the great physician treats the patient who has the disease."</p>
+    </section>
+
+    <!-- Specialists Slider -->
+    <section id="contact">
+        <h2>Meet Our Specialists</h2>
+        <p>Expert care from experienced professionals</p>
+        
+        <div class="slider-container">
+            <div class="slider-track">
+                <!-- Doctor 1 -->
+                <div class="doctor-card">
+                    <img src="img/girl-1.jpg" alt="Doctor">
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p>MBBS, MD - Cardiology</p>
+                    <p class="exp">12 Years Experience</p>
+                </div>
+                <!-- Doctor 2 -->
+                <div class="doctor-card">
+                    <img src="img/boy-1.jpg" alt="Doctor">
+                    <h3>Dr. Mark Smith</h3>
+                    <p>MBBS, MS - Orthopedics</p>
+                    <p class="exp">8 Years Experience</p>
+                </div>
+                <!-- Doctor 3 -->
+                <div class="doctor-card">
+                    <img src="img/girl-2.jpg" alt="Doctor">
+                    <h3>Dr. Emily White</h3>
+                    <p>MBBS - Pediatrics</p>
+                    <p class="exp">10 Years Experience</p>
+                </div>
+                <!-- Duplicates for animation loop -->
+                <div class="doctor-card">
+                    <img src="img/girl-1.jpg" alt="Doctor">
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p>MBBS, MD - Cardiology</p>
+                    <p class="exp">12 Years Experience</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/boy-1.jpg" alt="Doctor">
+                    <h3>Dr. Mark Smith</h3>
+                    <p>MBBS, MS - Orthopedics</p>
+                    <p class="exp">8 Years Experience</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/girl-2.jpg" alt="Doctor">
+                    <h3>Dr. Emily White</h3>
+                    <p>MBBS - Pediatrics</p>
+                    <p class="exp">10 Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-content">
+            <h2>About Our Clinic</h2>
+            <p>HeathCare+ is a leading 250-bed hospital located in Pune, providing advanced surgical and critical care.</p>
+            
+            <h4>Our Mission</h4>
+            <p>To provide accessible, safe, and patient-centered healthcare through innovation.</p>
+
+            <h4>Contact Info</h4>
+            <p>
+                45 Healthcare Avenue, Hinjawadi, Pune<br>
+                <strong>Phone:</strong> +91 90000 12345<br>
+                <strong>Emergency:</strong> 24/7 Available
+            </p>
+            <h4>Our Values</h4>
+            <h6>Compassion:</h6><p>Treating every patient with dignity and empathy.</p>
+            <h6>Integrity:</h6><p>Maintaining transparency and ethical medical practices.</p>
+            <h6>Excellence:</h6><p>Continuously improving clinical and operational standards.</p>
+            <h6>Safety:</h6><p>patient safety a priority throughout the treatment journey.</p>
+            <h6>Innovation:</h6><p>Adopting useful technologies to improve healthcare delivery.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HealthCare+ Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const track = document.querySelector('.slider-track');
+        track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+        track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    </script>
+</body>
+</html>
